@@ -1,20 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { StatList, StatsItem, Wrapper } from './Statistics.styled';
 
 export const Statistics = ({ title, stats }) => {
-  return (
-    <section className="statistics">
-      {{ title } && <h2 className="title">{title}</h2>}
+  const generateRandomColor = () => {
+    return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  };
 
-      <ul className="stat-list">
-        {stats.map(stat => (
-          <li key={stat.id} className="item">
-            <span className="label">{stat.label}</span>
-            <span className="percentage">{stat.percentage}</span>
-          </li>
-        ))}
-      </ul>
-    </section>
+  return (
+    <Wrapper>
+      {title && <h2 className="title">{title}</h2>}
+      <StatList>
+        {stats.map(stat => {
+          const bgColor = generateRandomColor();
+          return (
+            <StatsItem key={stat.id} bgColor={bgColor}>
+              <span className="label">{stat.label}</span>
+              <span className="percentage">{stat.percentage}%</span>
+            </StatsItem>
+          );
+        })}
+      </StatList>
+    </Wrapper>
   );
 };
 

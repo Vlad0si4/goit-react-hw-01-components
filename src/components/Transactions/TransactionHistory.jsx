@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Head, Wrapper, Rows } from './Transaction.styled';
 
 export const TransactionHistory = ({ items }) => {
   return (
-    <table className="transaction-history">
-      <thead>
+    <Wrapper>
+      <Head>
         <tr>
           <th>Type</th>
           <th>Amount</th>
           <th>Currency</th>
         </tr>
-      </thead>
-      <tbody>
+      </Head>
+      <Rows>
         {items.map(({ id, type, amount, currency }) => (
           <tr key={id}>
             <td>{type}</td>
@@ -19,15 +20,11 @@ export const TransactionHistory = ({ items }) => {
             <td>{currency}</td>
           </tr>
         ))}
-      </tbody>
-    </table>
+      </Rows>
+    </Wrapper>
   );
 };
 
 TransactionHistory.propType = {
   items: PropTypes.oneOfType([PropTypes.string]),
 };
-
-// function getRandomHexColor() {
-//   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-// }
