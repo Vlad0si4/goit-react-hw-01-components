@@ -3,11 +3,10 @@ import styled from 'styled-components';
 export const Card = styled.div`
   display: flex;
   flex-direction: column;
-  width: px;
+  width: 400px;
   overflow: hidden;
-  margin: 0 auto;
+  margin: 40px auto;
   margin-bottom: 20px;
-  margin-top: 40px
   width: 400px;
   min-height: 400px;
   border-radius: 20px;
