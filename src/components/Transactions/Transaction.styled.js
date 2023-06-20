@@ -3,10 +3,13 @@ import styled from 'styled-components';
 export const Wrapper = styled.table`
   width: 580px;
   margin: 40px auto;
-  border-radius: 5px;
+
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   border-style: hidden;
   border-spacing: 0;
   border: 1px solid #edf0fd;
+  box-shadow: rgb(0, 0, 0) 0px 3px 8px;
 `;
 
 export const Head = styled.thead`
