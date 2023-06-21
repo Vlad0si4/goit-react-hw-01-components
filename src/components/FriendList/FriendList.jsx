@@ -5,10 +5,21 @@ import { Wrapper } from './Friends.style';
 
 export const FriendList = ({ friendsArray }) => {
   return (
-    <Wrapper>{friendsArray.map(friend => FriendListItem(friend))}</Wrapper>
+    <Wrapper>
+      {friendsArray.map(friend => (
+        <FriendListItem {...friend} />
+      ))}
+    </Wrapper>
   );
 };
 
-FriendList.propType = {
-  friendsArray: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+FriendList.propTypes = {
+  friendsArray: PropTypes.shape(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
+      isOnline: PropTypes.bool.isRequired,
+      avatar: PropTypes.string.isRequired,
+    })
+  ),
 };
